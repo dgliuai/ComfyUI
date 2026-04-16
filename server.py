@@ -932,6 +932,13 @@ class PromptServer():
                 prompt = json_data["prompt"]
                 prompt_id = str(json_data.get("prompt_id", uuid.uuid4()))
 
+                # ==================== 【提交到队列时】打印 prompt_id ====================
+                timestamp = time.strftime("%Y-%m-%d %H:%M:%S")
+                start_msg = f"[{timestamp}] prompt_id {prompt_id} start (queued)"
+                print(start_msg, flush=True)  # ← 出现在网页底部 Console
+                # ===================================================================
+
+
                 partial_execution_targets = None
                 if "partial_execution_targets" in json_data:
                     partial_execution_targets = json_data["partial_execution_targets"]
