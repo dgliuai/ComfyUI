@@ -934,8 +934,10 @@ class PromptServer():
 
                 # ==================== 【提交到队列时】打印 prompt_id ====================
                 timestamp = time.strftime("%Y-%m-%d %H:%M:%S")
-                start_msg = f"[{timestamp}] prompt_id {prompt_id} start (queued)"
-                print(start_msg, flush=True)  # ← 出现在网页底部 Console
+                # start_msg = f"[{timestamp}] prompt_id {prompt_id} start (queued)"
+                # print(start_msg, flush=True)  # ← 出现在网页底部 Console
+                start_msg = f"[{timestamp}] prompt_id {prompt_id} start (queued-log)"
+                logging.info(start_msg)
                 # ===================================================================
 
 
